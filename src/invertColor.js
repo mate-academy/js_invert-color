@@ -13,6 +13,21 @@
  * @return {string}
  */
 function invertColor(color) {
+  function invert(hue) {
+    return 255 - hue;
+  }
+
+  function toHex(hex) {
+    const newHex = hex.toString(16);
+    return '0'.repeat(Math.max(2 - newHex.length, 0)) + newHex;
+  };
+
+  const parsedColor = color.slice(1);
+  const invRed = invert(+('0x' + parsedColor.slice(0, 2)));
+  const invGreen = invert(+('0x' + parsedColor.slice(2, 4)));
+  const invBlue = invert(+('0x' + parsedColor.slice(4)));
+  const result = '#' + toHex(invRed) + toHex(invGreen) + toHex(invBlue);
+  return result;
   // write code here
 }
 
