@@ -20,7 +20,7 @@ function invertColor(color) {
   const invertColorCalculator = whiteColor - replacedGridToZeroXColor;
   colorToHexString = invertColorCalculator.toString(16);
 
-  if (colorToHexString.length < 7) {
+  if (colorToHexString.length < 6) {
     colorToHexString = colorToHexString.padStart(6, 0)
   }
 
