@@ -21,9 +21,6 @@ function invertColor(color) {
       invertNum = '0' + invertNum;
     }
   }
-  // while (invertNum.length < 6) {
-  //   invertNum = '0' + invertNum;
-  // };
 
   return '#' + invertNum;
 }
