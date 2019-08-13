@@ -13,7 +13,16 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const whiteInDecemical = parseInt('FFFFFF', 16);
+  const invertedColor = whiteInDecemical - parseInt(color.slice(1), 16);
+
+  if (invertedColor === 0) {
+    return '#000000';
+  } else if (invertedColor.toString(16).length < 6) {
+    return '#0' + invertedColor.toString(16);
+  } else {
+    return '#' + invertedColor.toString(16);
+  }
 }
 
 module.exports = invertColor;
