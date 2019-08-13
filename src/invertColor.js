@@ -12,8 +12,9 @@
  *
  * @return {string}
  */
+const invert = require('invert-color');
 function invertColor(color) {
-  // write code here
+  return invert(color);
 }
 
 module.exports = invertColor;
