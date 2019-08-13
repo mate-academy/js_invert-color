@@ -12,9 +12,47 @@
  *
  * @return {string}
  */
-const invert = require('invert-color');
 function invertColor(color) {
-  return invert(color);
+  return color.toUpperCase().split('').map(elem => {
+    switch (elem) {
+      case '0':
+        return 'F';
+      case 1:
+        return 'E';
+      case 2:
+        return 'D';
+      case 3:
+        return 'C';
+      case 4:
+        return 'B';
+      case 5:
+        return 'A';
+      case 6:
+        return '10';
+      case 7:
+        return '9';
+      case 8:
+        return '8';
+      case 9:
+        return '7';
+      case 10:
+        return '6';
+      case 'A':
+        return '5';
+      case 'B':
+        return '4';
+      case 'C':
+        return '3';
+      case 'D':
+        return '2';
+      case 'E':
+        return '1';
+      case 'F':
+        return '0';
+      default:
+        return elem;
+    }
+  }).join('');
 }
 
 module.exports = invertColor;
