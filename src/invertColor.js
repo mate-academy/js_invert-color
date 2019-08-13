@@ -13,7 +13,15 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const hex = [
+    'F', 'E', 'D', 'C', 'B', 'A', '9', '8',
+    '7', '6', '5', '4', '3', '2', '1', '0'];
+  const t = [...color];
+
+  for (let i = 1; i <= 6; i++) {
+    t[i] = hex[parseInt(t[i], 16)];
+  }
+  return t.join('');
 }
 
 module.exports = invertColor;
