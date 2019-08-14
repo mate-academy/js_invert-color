@@ -70,6 +70,7 @@ function invertColor(color) {
         return 'it is not a color';
     }
   }
+
   return str.join('');
 }
 
