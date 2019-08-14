@@ -32,12 +32,12 @@ function invertColor(color) {
     'F': '0'
   };
 
-  let givenColor = color.toUpperCase().split('');
+  let invertColor = color.toUpperCase().split('');
 
-  for (let i = 1; i < givenColor.length; i++) {
-    givenColor[i] = hex[givenColor[i]];
+  for (let i = 1; i < invertColor.length; i++) {
+    invertColor[i] = hex[invertColor[i]];
   }
-  return givenColor.join('');
+  return invertColor.join('');
 }
 
 module.exports = invertColor;
