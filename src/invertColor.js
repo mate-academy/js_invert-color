@@ -13,7 +13,15 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const whiteColor = 0xffffff;
+  const hexColor = parseInt(color.slice(1), 16);
+  let reverColor = (whiteColor - hexColor).toString(16).toUpperCase();
+
+  for (let i = reverColor.length; i < 6; i++) {
+    reverColor = `0${reverColor}`;
+  }
+
+  return `#${reverColor}`;
 }
 
 module.exports = invertColor;
