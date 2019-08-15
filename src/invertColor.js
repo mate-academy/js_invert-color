@@ -15,13 +15,41 @@
 function invertColor(color) {
   const whiteColor = 0xffffff;
   const hexColor = parseInt(color.slice(1), 16);
-  let invertColorStr = (whiteColor - hexColor).toString(16).toUpperCase();
+  const revertColor = whiteColor - hexColor;
+  const toHex = function(value) {
+    let hexNumberInString = '';
+    let number = value;
+    const remainderValues = {
+      16: '10',
+      15: 'F',
+      14: 'E',
+      13: 'D',
+      12: 'C',
+      11: 'B',
+      10: 'A',
+    };
 
-  for (let i = invertColorStr.length; i < 6; i++) {
-    invertColorStr = `0${invertColorStr}`;
+    do {
+      let remainder = number % 16;
+
+      if (remainder > 9) {
+        remainder = remainderValues[remainder];
+      }
+
+      hexNumberInString = `${remainder}${hexNumberInString}`;
+      number = Math.trunc(number / 16);
+    } while (number);
+
+    return hexNumberInString;
+  };
+
+  let revertColorStr = toHex(revertColor);
+
+  for (let i = revertColorStr.length; i < 6; i++) {
+    revertColorStr = `0${revertColorStr}`;
   }
 
-  return `#${invertColorStr}`;
+  return `#${revertColorStr}`;
 }
 
 module.exports = invertColor;
