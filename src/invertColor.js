@@ -14,14 +14,14 @@
  */
 function invertColor(color) {
   let toDecimal = parseInt(color.replace('#', ''), 16);
-  let colNum = '';
+  let colInvert = '';
   const hexAlpabetReversed = 'FEDCBA9876543210';
 
-  while (colNum.length < 6) {
-    colNum += hexAlpabetReversed[toDecimal % 16];
+  while (colInvert.length < 6) {
+    colInvert += hexAlpabetReversed[toDecimal % 16];
     toDecimal = Math.floor(toDecimal / 16);
   }
-  return '#' + colNum.split('').reverse().join('');
+  return '#' + colInvert.split('').reverse().join('');
 }
 
 module.exports = invertColor;
