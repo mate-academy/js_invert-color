@@ -13,7 +13,16 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const hexSymbols = '0123456789ABCDEF'.split('');
+  const reversedHexSymbols = 'FEDCBA9876543210'.split('');
+  const invertedColor = color
+    .toUpperCase()
+    .replace(/#/g, '')
+    .split('')
+    .map(elem => hexSymbols.indexOf(elem))
+    .map(elem => reversedHexSymbols[elem])
+    .join('');
+  return `#${invertedColor}`;
 }
 
 module.exports = invertColor;
