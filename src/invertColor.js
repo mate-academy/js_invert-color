@@ -15,7 +15,7 @@
 function invertColor(color) {
   const whiteColor = 0xffffff;
   const hexColor = parseInt(color.slice(1), 16);
-  let revertColor = whiteColor - hexColor;
+  let revertedColor = whiteColor - hexColor;
   const toHex = function(value) {
     let hexNumberInString = '';
     let number = value;
@@ -43,13 +43,13 @@ function invertColor(color) {
     return hexNumberInString;
   };
 
-  revertColor = toHex(revertColor);
+  revertedColor = toHex(revertedColor);
 
-  for (let i = revertColor.length; i < 6; i++) {
-    revertColor = `0${revertColor}`;
+  for (let i = revertedColor.length; i < 6; i++) {
+    revertedColor = `0${revertedColor}`;
   }
 
-  return `#${revertColor}`;
+  return `#${revertedColor}`;
 }
 
 module.exports = invertColor;
