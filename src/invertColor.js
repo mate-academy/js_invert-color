@@ -13,9 +13,11 @@
  * @return {string}
  */
 function invertColor(color) {
-  const hexColor = color.split('').slice(1);
+  let hexColor = color.split('');
   let invertedColor;
   const resultColor = [];
+
+  hexColor = hexColor.slice(1);
 
   for (let i = 0; i < hexColor.length; i += 1) {
     invertedColor = (255 - parseInt(hexColor[i], 16))
