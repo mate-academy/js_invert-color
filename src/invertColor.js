@@ -14,15 +14,15 @@
  */
 function invertColor(color) {
   const hexSymbols = '0123456789ABCDEF'.split('');
-  const hexSymbolsReverse = 'FEDCBA9876543210'.split('');
-  const result = color
+  const reversedHexSymbols = 'FEDCBA9876543210'.split('');
+  const invertedColor = color
     .toUpperCase()
     .replace(/#/g, '')
     .split('')
     .map(elem => hexSymbols.indexOf(elem))
-    .map(elem => hexSymbolsReverse[elem])
+    .map(elem => reversedHexSymbols[elem])
     .join('');
-  return `#${result}`;
+  return `#${invertedColor}`;
 }
 
 module.exports = invertColor;
