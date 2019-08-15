@@ -16,12 +16,10 @@ function invertColor(color) {
   const hex = [
     'F', 'E', 'D', 'C', 'B', 'A', '9', '8',
     '7', '6', '5', '4', '3', '2', '1', '0'];
-  const t = [...color];
 
-  for (let i = 1; i <= 6; i++) {
-    t[i] = hex[parseInt(t[i], 16)];
-  }
-  return t.join('');
+  return [...color]
+    .map((item, i) => i === 0 ? item : hex[parseInt(item, 16)])
+    .join('');
 }
 
 module.exports = invertColor;
