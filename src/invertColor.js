@@ -13,8 +13,7 @@
  * @return {string}
  */
 function invertColor(color) {
-  let invertColorResult = '';
-  invertColorResult = color.toLowerCase().split('');
+  const invertColorResult = color.toLowerCase().split('');
 
   for (let i = 1; i < invertColorResult.length; i++) {
     switch (invertColorResult[i]) {
