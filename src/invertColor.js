@@ -45,9 +45,7 @@ function invertColor(color) {
 
   revertedColor = toHex(revertedColor);
 
-  for (let i = revertedColor.length; i < 6; i++) {
-    revertedColor = `0${revertedColor}`;
-  }
+  revertedColor = revertedColor.padStart(6, '0');
 
   return `#${revertedColor}`;
 }
