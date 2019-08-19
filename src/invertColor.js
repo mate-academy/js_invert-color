@@ -23,9 +23,7 @@ function invertColor(color) {
     colorHex = '0' + colorHex;
   }
 
-  colorHex = '#' + colorHex.toUpperCase();
-
-  return colorHex;
+  return '#' + colorHex.toUpperCase();
 }
 
 module.exports = invertColor;
