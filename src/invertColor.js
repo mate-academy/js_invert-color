@@ -15,15 +15,14 @@
 function invertColor(color) {
   const rules = ['F', 'E', 'D', 'C', 'B', 'A',
     '9', '8', '7', '6', '5', '4', '3', '2', '1', '0'];
-  const colorArr = [];
-  for (let i = 0; i < color.length; i++) {
-    colorArr[i] = color[i];
-  }
+
+  const invertedColor = color.split('');
+
   for (let i = 1; i <= 6; i++) {
-    colorArr[i] = rules[parseInt(colorArr[i], 16)];
+    invertedColor[i] = rules[parseInt(invertedColor[i], 16)];
   }
 
-  return colorArr.join('');
+  return invertedColor.join('');
 }
 
 module.exports = invertColor;
