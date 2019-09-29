@@ -13,7 +13,25 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const sixteen = [
+    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+    'A', 'B', 'C', 'D', 'E', 'F',
+  ];
+
+  const arr = [];
+
+  for (let i = 1; i < color.length; i++) {
+    for (let j = 0; j < sixteen.length; j++) {
+      const lower = sixteen[j].toLocaleLowerCase();
+      if (color[i] === sixteen[j] || color[i] === lower) {
+        arr.push(sixteen[(8 - j) * 2 + j - 1]);
+      } else {
+        continue;
+      }
+    }
+  }
+
+  return '#' + arr.join('');
 }
 
 module.exports = invertColor;
