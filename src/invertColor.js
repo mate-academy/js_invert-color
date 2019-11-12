@@ -13,7 +13,20 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const hexNums1 = '01234567';
+  const hexNums2 = '89ABCDEF';
+  let result = '';
+  const upColor = color.toUpperCase();
+
+  for (let i = 1; i < upColor.length; i++) {
+    if (hexNums1.includes(upColor[i])) {
+      result += hexNums2[7 - hexNums1.indexOf(upColor[i])];
+    } else {
+      result += hexNums1[7 - hexNums2.indexOf(upColor[i])];
+    }
+  }
+
+  return '#' + result;
 }
 
 module.exports = invertColor;
