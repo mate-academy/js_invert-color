@@ -14,6 +14,33 @@
  */
 function invertColor(color) {
   // write code here
+  const hexLetters = {
+    'A': 10,
+    'B': 11,
+    'C': 12,
+    'D': 13,
+    'E': 14,
+    'F': 15,
+    10: 'A',
+    11: 'B',
+    12: 'C',
+    13: 'D',
+    14: 'E',
+    15: 'F',
+  };
+  let result = '#';
+
+  for (let i = 1; i < color.length; i++) {
+    if (isNaN(color[i])) {
+      result += 15 - hexLetters[color[i].toUpperCase()];
+    } else if (15 - +color[i] > 9) {
+      result += hexLetters[15 - +color[i]];
+    } else {
+      result += 15 - +color[i];
+    }
+  }
+
+  return result;
 }
 
 module.exports = invertColor;
