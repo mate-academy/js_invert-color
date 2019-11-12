@@ -13,17 +13,12 @@
  * @return {string}
  */
 function invertColor(color) {
-  const hexNums1 = '01234567';
-  const hexNums2 = '89ABCDEF';
+  const hex = '0123456789ABCDEF';
   let result = '';
-  const upColor = color.toUpperCase();
+  const colorUpperCase = color.toUpperCase();
 
-  for (let i = 1; i < upColor.length; i++) {
-    if (hexNums1.includes(upColor[i])) {
-      result += hexNums2[7 - hexNums1.indexOf(upColor[i])];
-    } else {
-      result += hexNums1[7 - hexNums2.indexOf(upColor[i])];
-    }
+  for (let i = 1; i < colorUpperCase.length; i++) {
+    result += hex[15 - hex.indexOf(colorUpperCase[i])];
   }
 
   return '#' + result;
