@@ -13,7 +13,16 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  let noHashColor = parseInt(color.substring(1), 16);
+  let invertedColor = '';
+  const hexLettersReversed = 'fedcba9876543210';
+
+  while (invertedColor.length < 6) {
+    invertedColor += hexLettersReversed[noHashColor % 16];
+    noHashColor = Math.floor(noHashColor / 16);
+  }
+
+  return '#' + invertedColor.split('').reverse().join('');
 }
 
 module.exports = invertColor;
