@@ -13,7 +13,18 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const replacedHashtag = color.replace('#', '');
+  let invertedColor = '';
+  let decimalColor = parseInt(replacedHashtag, 16);
+  let hexSymbols = '0123456789abcdef';
+  hexSymbols = hexSymbols.split('').reverse().join('');
+
+  while (invertedColor.length < 6) {
+    invertedColor += hexSymbols[decimalColor % 16];
+    decimalColor = Math.floor(decimalColor / 16);
+  }
+
+  return `#${invertedColor.split('').reverse().join('')}`;
 }
 
 module.exports = invertColor;
