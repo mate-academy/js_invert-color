@@ -33,10 +33,10 @@ function invertColor(color) {
   for (let i = 1; i < color.length; i++) {
     if (isNaN(color[i])) {
       result += 15 - hexLetters[color[i].toUpperCase()];
-    } else if (15 - +color[i] > 9) {
-      result += hexLetters[15 - +color[i]];
+    } else if (15 - color[i] > 9) {
+      result += hexLetters[15 - color[i]];
     } else {
-      result += 15 - +color[i];
+      result += 15 - color[i];
     }
   }
 
