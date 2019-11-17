@@ -13,43 +13,40 @@
  * @return {string}
  */
 function invertColor(color) {
-  const notReverseData = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-  const reverseData = [15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
+  const normalizedColor = color.toUpperCase();
 
-  const mainColor = color.slice(1, color.length).split('');
+  const mainColor = normalizedColor.slice(1, color.length).split('');
 
-  const mainColorArr = [];
+  const colorChar = {
+    0: 'F',
+    1: 'E',
+    2: 'D',
+    3: 'C',
+    4: 'B',
+    5: 'A',
+    6: '9',
+    7: '8',
+    8: '7',
+    9: '6',
+    A: '5',
+    B: '4',
+    C: '3',
+    D: '2',
+    E: '1',
+    F: '0',
+  };
+
+  const invertColorArr = [];
 
   for (let i = 0; i < mainColor.length; i++) {
-    if (isNaN(Number(mainColor[i]))) {
-      mainColorArr.push(mainColor[i].toLowerCase().charCodeAt(0) - 87);
-    } else {
-      mainColorArr.push(+mainColor[i]);
-    }
-  }
-
-  const reverseColor = [];
-
-  for (let i = 0; i < mainColorArr.length; i++) {
-    for (let j = 0; j < notReverseData.length; j++) {
-      if (mainColorArr[i] === notReverseData[j]) {
-        reverseColor.push(reverseData[j]);
+    for (const prop in colorChar) {
+      if (mainColor[i] === colorChar[prop]) {
+        invertColorArr.push(prop);
       }
     }
   }
 
-  const reverseResult = [];
-
-  for (let i = 0; i < reverseColor.length; i++) {
-    if (reverseColor[i] < 10) {
-      reverseResult.push(reverseColor[i]);
-    } else {
-      reverseResult.push(String.fromCharCode(reverseColor[i] + 87)
-        .toUpperCase());
-    }
-  }
-
-  return ('#' + reverseResult.join(''));
+  return ('#' + invertColorArr.join(''));
 }
 
 module.exports = invertColor;
