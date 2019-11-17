@@ -13,7 +13,13 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  let colorInverted = (0xFFFFFF - color.replace('#', '0x')).toString(16);
+
+  while (colorInverted.length < 6) {
+    colorInverted = '0' + colorInverted;
+  }
+
+  return `#${colorInverted}`;
 }
 
 module.exports = invertColor;
