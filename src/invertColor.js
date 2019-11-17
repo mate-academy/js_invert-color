@@ -13,7 +13,38 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const hexAlphabet = '0123456789ABCDEF';
+  let invertedColor = '';
+  const subColor = color.substring(1,).toUpperCase();
+  const maxValue = 15;
+  let invertedValue = 0;
+
+  for (let i = 0; i < subColor.length; i++) {
+    for (let j = 0; j < hexAlphabet.length; j++) {
+      if (subColor[i] === hexAlphabet[j]) {
+        invertedValue = maxValue - j;
+        invertedColor += hexAlphabet[invertedValue];
+      }
+    }
+  }
+
+  return '#' + invertedColor;
+
+  // const reversedHexAlphabet = 'FEDCBA9876543210';
+  // let invertedColor = '';
+  // const subColor = color.substring(1,);
+  // let decimalColor = parseInt(subColor, 16);
+
+  // if (decimalColor === 0) {
+  //   return '#FFFFFF';
+  // }
+
+  // do {
+  //   invertedColor += reversedHexAlphabet[decimalColor % 16];
+  //   decimalColor = Math.floor(decimalColor / 16);
+  // } while (decimalColor > 0)
+
+  // return '#' + invertedColor.split('').reverse().join('');
 }
 
 module.exports = invertColor;
