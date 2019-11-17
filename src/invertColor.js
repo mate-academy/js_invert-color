@@ -13,7 +13,40 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const normalizedColor = color.toUpperCase();
+
+  const mainColor = normalizedColor.slice(1, color.length).split('');
+
+  const colorChar = {
+    0: 'F',
+    1: 'E',
+    2: 'D',
+    3: 'C',
+    4: 'B',
+    5: 'A',
+    6: '9',
+    7: '8',
+    8: '7',
+    9: '6',
+    A: '5',
+    B: '4',
+    C: '3',
+    D: '2',
+    E: '1',
+    F: '0',
+  };
+
+  const invertColorArr = [];
+
+  for (let i = 0; i < mainColor.length; i++) {
+    for (const prop in colorChar) {
+      if (mainColor[i] === colorChar[prop]) {
+        invertColorArr.push(prop);
+      }
+    }
+  }
+
+  return ('#' + invertColorArr.join(''));
 }
 
 module.exports = invertColor;
