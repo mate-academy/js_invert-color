@@ -16,11 +16,11 @@ function invertColor(color) {
   // write code here
 
   const HEX = '0123456789abcdef';
-  const lenghtHEX = 15;
+  const indicesHEX = 15;
   const arr = color.split('').reverse();
 
   for (let i = 0; i < arr.length - 1; i++) {
-    arr[i] = HEX[lenghtHEX - HEX.indexOf(arr[i].toLowerCase())];
+    arr[i] = HEX[indicesHEX - HEX.indexOf(arr[i].toLowerCase())];
   }
 
   return arr.reverse().join('');
