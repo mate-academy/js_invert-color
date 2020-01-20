@@ -13,7 +13,10 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const str = (0xFFFFFF - parseInt(color.slice(1), 16))
+    .toString(16).toUpperCase();
+
+  return '#000000'.substr(0, (7 - str.length)) + str;
 }
 
 module.exports = invertColor;
