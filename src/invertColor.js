@@ -13,7 +13,14 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const valueHEX = '0123456789ABCDEF';
+  let result = '#';
+
+  for (let i = 1; i < color.length; i++) {
+    result += valueHEX[15 - valueHEX.indexOf(color[i].toUpperCase())];
+  }
+
+  return result;
 }
 
 module.exports = invertColor;
