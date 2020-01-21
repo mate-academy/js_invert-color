@@ -1,6 +1,7 @@
 'use strict';
 
 /**
+ * fs_on_dec19_salogubova
  * Write a function accepting 6 digit HEX color with a leading #
  * and returning inverted color (color + inverted === white)
  *
@@ -12,8 +13,22 @@
  *
  * @return {string}
  */
+const hex = ['0', '1', '2', '3', '4', '5', '6', '7', '8',
+  '9', 'a', 'b', 'c', 'd', 'e', 'f'];
+
 function invertColor(color) {
-  // write code here
+  let invertColorString = '';
+  const colors = color.substr(1).toLowerCase();
+
+  for (let i = 0; i <= colors.length - 1; i++) {
+    const colorsItem = hex.indexOf((colors[i]));
+
+    const invertItem = hex[15 - colorsItem];
+
+    invertColorString += invertItem.toUpperCase();
+  }
+
+  return '#' + invertColorString;
 }
 
 module.exports = invertColor;
