@@ -12,8 +12,37 @@
  *
  * @return {string}
  */
+
+const listInvertedColors = {
+  0: 'f',
+  1: 'e',
+  2: 'd',
+  3: 'c',
+  4: 'b',
+  5: 'a',
+  6: '9',
+  7: '8',
+  8: '7',
+  9: '6',
+  A: '5',
+  B: '4',
+  C: '3',
+  D: '2',
+  E: '1',
+  F: '0',
+};
+
 function invertColor(color) {
-  // write code here
+  let result = '#';
+  const trimUpString = color.slice(1).toUpperCase();
+
+  for (let i = 0; i < trimUpString.length; i++) {
+    const charToInvert = trimUpString[i];
+
+    result += listInvertedColors[charToInvert];
+  }
+
+  return result;
 }
 
 module.exports = invertColor;
