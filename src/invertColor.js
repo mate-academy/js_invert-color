@@ -17,13 +17,13 @@ function invertColor(color) {
 
   const HEX = '0123456789abcdef';
   const indicesHEX = 15;
-  const arr = color.split('');
+  let result = '#';
 
-  for (let i = arr.length - 1; i > arr.length - 7; i--) {
-    arr[i] = HEX[indicesHEX - HEX.indexOf(arr[i].toLowerCase())];
+  for (let i = 1; i < color.length; i++) {
+    result += HEX[indicesHEX - HEX.indexOf(color[i].toLowerCase())];
   }
 
-  return arr.join('');
+  return result;
 }
 
 module.exports = invertColor;
