@@ -13,7 +13,19 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  let onlyNumberColor = (0xFFFFFF - parseInt(color.slice(1, color.length), 16))
+    .toString(16).toUpperCase();
+  const hexCount = 6 - onlyNumberColor.length;
+
+  if (hexCount === 0) {
+    return '#' + onlyNumberColor;
+  } else {
+    for (let i = 0; i < hexCount; i++) {
+      onlyNumberColor = '0' + onlyNumberColor;
+    }
+
+    return '#' + onlyNumberColor;
+  }
 }
 
 module.exports = invertColor;
