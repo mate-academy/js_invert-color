@@ -13,7 +13,18 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const hexedList = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+    'a', 'b', 'c', 'd', 'e', 'f'];
+  let result = '#';
+  const initialColor = color.toLowerCase();
+
+  for (let i = 1; i < initialColor.length; i++) {
+    const index = hexedList.indexOf(initialColor[i]);
+
+    result += hexedList[hexedList.length - (index + 1)];
+  }
+
+  return result;
 }
 
 module.exports = invertColor;
