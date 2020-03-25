@@ -13,7 +13,33 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const obj = {
+    0: 'F',
+    1: 'E',
+    2: 'D',
+    3: 'C',
+    4: 'B',
+    5: 'A',
+    6: '9',
+    7: '8',
+    8: '7',
+    9: '6',
+    A: '5',
+    B: '4',
+    C: '3',
+    D: '2',
+    E: '1',
+    F: '0',
+  };
+
+  let res = '#';
+  const colorNew = color.toUpperCase().slice(1);
+
+  for (let i = 0; i < colorNew.length; i++) {
+    res += obj[colorNew[i]];
+  }
+
+  return res;
 }
 
 module.exports = invertColor;
