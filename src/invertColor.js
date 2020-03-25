@@ -13,7 +13,21 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const r = '0x' + String(color).split('').splice(1, 2).join('');
+  const g = '0x' + String(color).split('').splice(3, 2).join('');
+  const b = '0x' + String(color).split('').splice(5, 2).join('');
+
+  function toHex(x) {
+    const result = Number(0xFF) - Number(x);
+
+    if (result < 16) {
+      return '0' + result.toString(16);
+    } else {
+      return result.toString(16);
+    }
+  }
+
+  return '#' + toHex(r) + toHex(g) + toHex(b);
 }
 
 module.exports = invertColor;
