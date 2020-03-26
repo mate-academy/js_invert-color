@@ -18,12 +18,18 @@ function invertColor(color) {
   const b = '0x' + String(color).split('').splice(5, 2).join('');
 
   function toHex(x) {
+    const hexStr = '0123456789abcdef';
+    let low = 0;
+    let high = 0;
     const result = Number(0xFF) - Number(x);
 
+    (result < 0) ? low = 0 : low = result % 16;
+    (result < 0) ? high = 0 : high = (result - low) / 16;
+
     if (result < 16) {
-      return '0' + result.toString(16);
+      return '0' + hexStr.charAt(low);
     } else {
-      return result.toString(16);
+      return '' + hexStr.charAt(high) + hexStr.charAt(low);
     }
   }
 
