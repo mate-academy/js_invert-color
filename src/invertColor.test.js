@@ -20,6 +20,7 @@ test('should work case insensitive', () => {
 test('double inversion should give the original color', () => {
   const color = '#67890F';
   const inverted = invertColor(color);
+  
   expect(invertColor(inverted).toUpperCase())
     .toBe(color);
 });
