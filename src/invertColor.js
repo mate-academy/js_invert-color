@@ -14,31 +14,41 @@
  */
 function invertColor(color) {
   const noHashColor = color.slice(1).toUpperCase();
+  const hexLetters = {
+    10: 'A',
+    11: 'B',
+    12: 'C',
+    13: 'D',
+    14: 'E',
+    15: 'F',
+  };
   const white = parseInt(0xFF);
-  let red = (white - parseInt('0x' + noHashColor[0] + noHashColor[1]))
-    .toString(16);
+  const red = white - parseInt('0x' + noHashColor[0] + noHashColor[1]);
+  const green = white - parseInt('0x' + noHashColor[2] + noHashColor[3]);
+  const blue = white - parseInt('0x' + noHashColor[4] + noHashColor[5]);
 
-  if (red.length === 1) {
-    red = '0' + red;
+  const invertedColors = [red, green, blue];
+  let invertedColor = '';
+
+  for (const i in invertedColors) {
+    const hexSixteenth = Math.floor(invertedColors[i] / 16);
+
+    if (hexSixteenth < 10) {
+      invertedColor += hexSixteenth;
+    } else {
+      invertedColor += hexLetters[hexSixteenth];
+    }
+
+    const hexOnes = invertedColors[i] % 16;
+
+    if (hexOnes < 10) {
+      invertedColor += hexOnes;
+    } else {
+      invertedColor += hexLetters[hexOnes];
+    }
   }
 
-  let green = (white - parseInt('0x' + noHashColor[2] + noHashColor[3]))
-    .toString(16);
-
-  if (green.length === 1) {
-    green = '0' + green;
-  }
-
-  let blue = (white - parseInt('0x' + noHashColor[4] + noHashColor[5]))
-    .toString(16);
-
-  if (blue.length === 1) {
-    blue = '0' + blue;
-  }
-
-  const invertedColor = '#' + red + green + blue;
-
-  return invertedColor;
+  return '#' + invertedColor;
 }
 
 module.exports = invertColor;
