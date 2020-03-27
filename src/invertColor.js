@@ -23,14 +23,14 @@ function invertColor(color) {
     num3: numMax - parseInt(color.slice(5, 7), 16),
   };
 
-  for (const keyNum in invert) {
-    invert[keyNum] = invert[keyNum].toString(16);
+  for (const key in invert) {
+    invert[key] = invert[key].toString(16);
 
-    if (invert[keyNum].length === 1) {
-      invert[keyNum] = '0' + invert[keyNum];
+    if (invert[key].length === 1) {
+      invert[key] = '0' + invert[key];
     }
 
-    res += invert[keyNum];
+    res += invert[key];
   }
 
   return res;
