@@ -14,6 +14,26 @@
  */
 function invertColor(color) {
   // write code here
+  const numMax = parseInt('ff', 16);
+  let res = '#';
+
+  const invert = {
+    num1: numMax - parseInt(color.slice(1, 3), 16),
+    num2: numMax - parseInt(color.slice(3, 5), 16),
+    num3: numMax - parseInt(color.slice(5, 7), 16),
+  };
+
+  for (const keyNum in invert) {
+    invert[keyNum] = invert[keyNum].toString(16);
+
+    if (invert[keyNum].length === 1) {
+      invert[keyNum] = '0' + invert[keyNum];
+    }
+
+    res += invert[keyNum];
+  }
+
+  return res;
 }
 
 module.exports = invertColor;
