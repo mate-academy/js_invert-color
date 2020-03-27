@@ -13,9 +13,9 @@
  * @return {string}
  */
 function invertColor(color) {
-  const r = '0x' + String(color).split('').splice(1, 2).join('');
-  const g = '0x' + String(color).split('').splice(3, 2).join('');
-  const b = '0x' + String(color).split('').splice(5, 2).join('');
+  const r = '0x' + color.split('').splice(1, 2).join('');
+  const g = '0x' + color.split('').splice(3, 2).join('');
+  const b = '0x' + color.split('').splice(5, 2).join('');
 
   function toHex(x) {
     const hexStr = '0123456789abcdef';
