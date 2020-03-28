@@ -13,7 +13,6 @@
  * @return {string}
  */
 function invertColor(color) {
-
   function hexInverter (item) {
     if (/[\d]/g.test(item) === true) {
       item = 15 - parseInt(item);
