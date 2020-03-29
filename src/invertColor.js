@@ -13,12 +13,32 @@
  * @return {string}
  */
 function invertColor(color) {
-  return '#' + (15 - parseInt(color[1], 16)).toString(16)
-  + (15 - parseInt(color[2], 16)).toString(16)
-  + (15 - parseInt(color[3], 16)).toString(16)
-  + (15 - parseInt(color[4], 16)).toString(16)
-  + (15 - parseInt(color[5], 16)).toString(16)
-  + (15 - parseInt(color[6], 16)).toString(16);
+  const invertObj = {
+    0: 'F',
+    1: 'E',
+    2: 'D',
+    3: 'C',
+    4: 'B',
+    5: 'A',
+    6: '9',
+    7: '8',
+    8: '7',
+    9: '6',
+    A: '5',
+    B: '4',
+    C: '3',
+    D: '2',
+    E: '1',
+    F: '0',
+  };
+  let newColor = '#';
+  const colorLength = color.length;
+
+  for (let i = 1; i < colorLength; i++) {
+    newColor += invertObj[color[i].toUpperCase()];
+  };
+
+  return newColor;
 };
 
 module.exports = invertColor;
