@@ -15,17 +15,16 @@
 function invertColor(color) {
   function hexInverter (item) {
     if (/[\d]/g.test(item) === true) {
-      item = 15 - parseInt(item);
-      return hexRepresentetion.split("")[item];
+      return hexRepresentetion.split('')[`${15 - parseInt(item)}`];
     }
-    else {
-      return item = hexRepresentetion.indexOf(15 - hexRepresentetion.indexOf(item));
-    }
-  }
-  let hexRepresentetion = "0123456789ABCDEF"
-  color = color.toUpperCase().split("").slice(1, );
 
-  return "#" + color.map(hexInverter).join("");
+    item = hexRepresentetion.indexOf(15 - hexRepresentetion.indexOf(item));
+    return item;
+  }
+  const hexRepresentetion = '0123456789ABCDEF'
+  color = color.toUpperCase().split('').slice(1);
+
+  return '#' + color.map(hexInverter).join('');
 }
 
 
