@@ -13,7 +13,28 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  let finalyColor = '#';
+  const firstCheck = color.replace(/F/ig, 0)
+    .replace(/E/ig, 1)
+    .replace(/D/ig, 2)
+    .replace(/C/ig, 3)
+    .replace(/B/ig, 4)
+    .replace(/A/ig, 5);
+
+  for (let i = 1; i < firstCheck.length; i++) {
+    if (firstCheck[i] !== color[i]) {
+      finalyColor += firstCheck[i];
+    } else {
+      finalyColor += firstCheck[i].replace(/0/ig, 'F')
+        .replace(/1/ig, 'E')
+        .replace(/2/ig, 'D')
+        .replace(/3/ig, 'C')
+        .replace(/4/ig, 'B')
+        .replace(/5/ig, 'A');
+    }
+  }
+
+  return finalyColor;
 }
 
 module.exports = invertColor;
