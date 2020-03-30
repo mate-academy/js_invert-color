@@ -14,26 +14,27 @@
  */
 function invertColor(color) {
   // write code here
-  const numMax = parseInt('ff', 16);
-  let res = '#';
-
   const invert = {
-    num1: numMax - parseInt(color.slice(1, 3), 16),
-    num2: numMax - parseInt(color.slice(3, 5), 16),
-    num3: numMax - parseInt(color.slice(5, 7), 16),
+    0: 'F',
+    1: 'E',
+    2: 'D',
+    3: 'C',
+    4: 'B',
+    5: 'A',
+    6: '9',
+    7: '8',
+    8: '7',
+    9: '6',
+    A: '5',
+    B: '4',
+    C: '3',
+    D: '2',
+    E: '1',
+    F: '0',
   };
 
-  for (const key in invert) {
-    invert[key] = invert[key].toString(16);
-
-    if (invert[key].length === 1) {
-      invert[key] = '0' + invert[key];
-    }
-
-    res += invert[key];
-  }
-
-  return res;
+  return color.toUpperCase()
+    .replace(/(\w|\d)/g, (match, $1) => invert[$1]);
 }
 
 module.exports = invertColor;
