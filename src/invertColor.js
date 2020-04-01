@@ -13,7 +13,12 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const convInput = color.replace('#', '0x');
+  const white = 0xFFFFFF;
+
+  return '#' + (
+    ((white - +convInput).toString(16)
+    ).toUpperCase()).padStart(6, '0');
 }
 
 module.exports = invertColor;
