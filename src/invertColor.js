@@ -13,7 +13,31 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const hex = {
+    0: 'F',
+    1: 'E',
+    2: 'D',
+    3: 'C',
+    4: 'B',
+    5: 'A',
+    6: '9',
+    7: '8',
+    8: '7',
+    9: '6',
+    A: '5',
+    B: '4',
+    C: '3',
+    D: '2',
+    E: '1',
+    F: '0',
+  };
+  let result = '#';
+
+  for (let i = 1; i < color.length; i++) {
+    result += hex[color[i].toUpperCase()];
+  }
+
+  return result;
 }
 
 module.exports = invertColor;
