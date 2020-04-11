@@ -13,7 +13,17 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const palette = ['0', '1', '2', '3', '4', '5', '6',
+    '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
+  let inverseColor = '#';
+
+  color.replace('#', '').split('').forEach(i => {
+    const index = palette.indexOf(i.toUpperCase());
+
+    inverseColor += palette.reverse()[index];
+  });
+
+  return inverseColor;
 }
 
 module.exports = invertColor;
