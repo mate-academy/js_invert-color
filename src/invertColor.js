@@ -14,6 +14,15 @@
  */
 function invertColor(color) {
   // write code here
+  const code = color.replace('#', '0x');
+
+  let result = (parseInt('FFFFFF', 16) - parseInt(code, 16)).toString(16);
+
+  while (result.length < 6) {
+    result = '0' + result;
+  }
+
+  return '#' + result;
 }
 
 module.exports = invertColor;
