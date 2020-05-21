@@ -13,7 +13,16 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  let str = '#';
+
+  for (let i = 1; i < color.length; i += 2) {
+    const decimal = 255 - parseInt(color[i] + color[i + 1], 16);
+    const hex = decimal.toString(16);
+
+    str += hex.length < 2 ? 0 + hex : hex;
+  }
+
+  return str;
 }
 
 module.exports = invertColor;
