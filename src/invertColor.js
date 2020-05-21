@@ -13,7 +13,64 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  let array = color;
+
+  array = array.split('');
+  array.shift();
+
+  let hex = '#';
+  let num;
+
+  for (let i = 0; i < array.length; i++) {
+    switch (array[i].toLowerCase()) {
+      case 'a':
+        num = 10;
+        break;
+      case 'b':
+        num = 11;
+        break;
+      case 'c':
+        num = 12;
+        break;
+      case 'd':
+        num = 13;
+        break;
+      case 'e':
+        num = 14;
+        break;
+      case 'f':
+        num = 15;
+        break;
+      default:
+        num = array[i];
+    }
+    num = 15 - num;
+
+    switch (num) {
+      case 10:
+        num = 'a';
+        break;
+      case 11:
+        num = 'b';
+        break;
+      case 12:
+        num = 'c';
+        break;
+      case 13:
+        num = 'd';
+        break;
+      case 14:
+        num = 'e';
+        break;
+      case 15:
+        num = 'f';
+        break;
+      default:
+    }
+    hex += num.toString();
+  }
+
+  return hex;
 }
 
 module.exports = invertColor;
