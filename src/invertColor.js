@@ -13,7 +13,19 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const colorCode = color.slice(1).toUpperCase();
+  const arr = [];
+
+  for (let i = 0; i < colorCode.length; i += 2) {
+    let temp = (255 - parseInt('0x' + colorCode.slice(i, i + 2))).toString(16);
+
+    if (temp.length < 2) {
+      temp = '0' + temp;
+    };
+    arr.push(temp);
+  }
+
+  return '#' + arr.join('');
 }
 
 module.exports = invertColor;
