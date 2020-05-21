@@ -13,7 +13,23 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const hashlessColor = color.slice(1);
+  let invert = '#';
+
+  for (let i = 0; i < hashlessColor.length / 2; i++) {
+    const currentColor = hashlessColor.slice(i * 2, i * 2 + 2);
+    const invertCurColor = (255 - parseInt(currentColor, 16)).toString(16);
+
+    if (invertCurColor.length < 2) {
+      invert = invert + '0' + invertCurColor;
+    } else {
+      invert = invert + invertCurColor;
+    }
+  }
+
+  return invert;
 }
+
+// invertColor('#DDEEAA');
 
 module.exports = invertColor;
