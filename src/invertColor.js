@@ -30,6 +30,4 @@ function invertColor(color) {
   return invert;
 }
 
-// invertColor('#DDEEAA');
-
 module.exports = invertColor;
