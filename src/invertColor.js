@@ -13,7 +13,21 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const hexArray = [
+    '0', '1', '2', '3', '4', '5', '6', '7',
+    '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
+  const reversetHexArray = [
+    'F', 'E', 'D', 'C', 'B', 'A', '9', '8',
+    '7', '6', '5', '4', '3', '2', '1', '0'];
+
+  const reversetColor = ['#'];
+
+  for (let i = 1; i < color.length; i++) {
+    reversetColor
+      .push(reversetHexArray[hexArray.indexOf(color[i].toUpperCase())]);
+  }
+
+  return reversetColor.join('');
 }
 
 module.exports = invertColor;
