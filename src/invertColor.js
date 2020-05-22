@@ -14,7 +14,7 @@
  */
 function invertColor(color) {
   const colorCode = color.slice(1).toUpperCase();
-  const arr = [];
+  let invertedColor = '';
   const maxCodeInDec = 255;
 
   for (let i = 0; i < colorCode.length; i += 2) {
@@ -24,10 +24,10 @@ function invertColor(color) {
     if (temp.length < 2) {
       temp = '0' + temp;
     };
-    arr.push(temp);
+    invertedColor += temp;
   }
 
-  return '#' + arr.join('');
+  return '#' + invertedColor;
 }
 
 module.exports = invertColor;
