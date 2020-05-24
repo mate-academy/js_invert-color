@@ -13,7 +13,21 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  let zero = '';
+
+  const hexMax = 0xffffff;
+  const hexActive = '0x' + color.slice(1);
+  const hexInvert = (hexMax - hexActive).toString(16);
+
+  if (hexInvert.length < 6) {
+    for (let i = hexInvert.length; i < 6; i++) {
+      zero += '0';
+    }
+
+    return '#' + zero + hexInvert;
+  } else {
+    return '#' + hexInvert;
+  }
 }
 
 module.exports = invertColor;
