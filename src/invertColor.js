@@ -16,10 +16,11 @@ function invertColor(color) {
   let inverted = '#';
 
   for (let i = 1; i < color.length; i += 2) {
-    const colorTemp = 255 - parseInt(color[i] + color[i + 1], 16);
-    const colorTempDec = colorTemp.toString(16);
+    const tempColor = 255 - parseInt(color[i] + color[i + 1], 16);
+    const tempColorDecimal = tempColor.toString(16);
 
-    inverted += colorTempDec.length < 2 ? 0 + colorTempDec : colorTempDec;
+    inverted += tempColorDecimal.length < 2
+      ? 0 + tempColorDecimal : tempColorDecimal;
   }
 
   return inverted;
