@@ -19,8 +19,11 @@ function invertColor(color) {
     const tempColor = 255 - parseInt(color[i] + color[i + 1], 16);
     const tempColorDecimal = tempColor.toString(16);
 
-    inverted += tempColorDecimal.length < 2
-      ? 0 + tempColorDecimal : tempColorDecimal;
+    if (tempColorDecimal.length < 2) {
+      inverted += 0 + tempColorDecimal;
+    } else {
+      inverted += tempColorDecimal;
+    }
   }
 
   return inverted;
