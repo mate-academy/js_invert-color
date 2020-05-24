@@ -13,7 +13,18 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const white = 0xFFFFFF;
+  const colorHex = parseInt(color.replace('#', '0x'), 16);
+
+  const hexLength = 6;
+  const hexInverted = (white - colorHex).toString(16);
+  const numRepetitions = hexLength - hexInverted.length;
+
+  if (numRepetitions > 0) {
+    return '#' + '0'.repeat(numRepetitions) + hexInverted;
+  } else {
+    return '#' + hexInverted;
+  }
 }
 
 module.exports = invertColor;
