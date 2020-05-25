@@ -13,7 +13,25 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const hexSymbols = '0123456789ABCDEF';
+
+  const hexArr = [color.slice(1, 3), color.slice(3, 5), color.slice(5)];
+
+  for (let item of hexArr) {
+    item = hexSymbols.indexOf(item[0]) * 16 + hexSymbols.indexOf(item[1]);
+    item = 255 - item;
+
+    if (item < 16) {
+      item = '0' + hexSymbols[item];
+    } else {
+      const hexCharFirst = hexSymbols.indexOf(Math.floor(item / 16));
+      const hexCharSecond = hexSymbols.indexOf(item % 16);
+
+      item = hexCharFirst + hexCharSecond;
+    }
+  }
+
+  return '#' + hexArr.join('');
 }
 
 module.exports = invertColor;
