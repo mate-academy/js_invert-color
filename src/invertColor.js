@@ -15,19 +15,22 @@
 function invertColor(color) {
   const hexSymbols = '0123456789ABCDEF';
 
-  const hexArr = [color.slice(1, 3), color.slice(3, 5), color.slice(5)];
+  const hexArr = [color.toUpperCase().slice(1, 3),
+    color.toUpperCase().slice(3, 5),
+    color.toUpperCase().slice(5)];
 
-  for (let item of hexArr) {
-    item = hexSymbols.indexOf(item[0]) * 16 + hexSymbols.indexOf(item[1]);
-    item = 255 - item;
+  for (let i = 0; i < hexArr.length; i++) {
+    hexArr[i] = hexSymbols.indexOf(hexArr[i][0]) * 16
+    + hexSymbols.indexOf(hexArr[i][1]);
+    hexArr[i] = 255 - hexArr[i];
 
-    if (item < 16) {
-      item = '0' + hexSymbols[item];
+    if (hexArr[i] < 16) {
+      hexArr[i] = '0' + hexSymbols[hexArr[i]];
     } else {
-      const hexCharFirst = hexSymbols.indexOf(Math.floor(item / 16));
-      const hexCharSecond = hexSymbols.indexOf(item % 16);
+      const hexCharFirst = hexSymbols[Math.floor(hexArr[i] / 16)];
+      const hexCharSecond = hexSymbols[hexArr[i] % 16];
 
-      item = hexCharFirst + hexCharSecond;
+      hexArr[i] = hexCharFirst + hexCharSecond;
     }
   }
 
