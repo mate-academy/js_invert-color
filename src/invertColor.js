@@ -17,13 +17,49 @@ function invertColor(color) {
   const colorHex = parseInt(color.replace('#', '0x'), 16);
 
   const hexLength = 6;
-  const hexInverted = (white - colorHex).toString(16);
+  const hexInverted = toHex(white - colorHex);
   const numRepetitions = hexLength - hexInverted.length;
 
   if (numRepetitions > 0) {
     return '#' + '0'.repeat(numRepetitions) + hexInverted;
   } else {
     return '#' + hexInverted;
+  }
+
+  function toHex(value) {
+    if (value === 0) {
+      return '0';
+    }
+
+    let number = value;
+    let remainder = 0;
+    let remainderStr = '';
+    let hexStr = '';
+    const hexDecimals = {
+      10: 'a',
+      11: 'b',
+      12: 'c',
+      13: 'd',
+      14: 'e',
+      15: 'f',
+    };
+
+    while (number > 0.99) {
+      remainder = number % 16;
+      number = Math.floor(number / 16);
+
+      if (remainder < 10) {
+        remainderStr += remainder;
+      } else {
+        remainderStr += hexDecimals[remainder];
+      }
+    }
+
+    for (let i = remainderStr.length - 1; i >= 0; i--) {
+      hexStr += remainderStr[i];
+    }
+
+    return hexStr;
   }
 }
 
