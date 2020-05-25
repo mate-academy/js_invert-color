@@ -13,40 +13,24 @@
  * @return {string}
  */
 function invertColor(color) {
-  const hexNumberR = color.slice(1, 3);
-  const hexNumberG = color.slice(3, 5);
-  const hexNumberB = color.slice(5);
+  const colorArray = [color.slice(1, 3), color.slice(3, 5), color.slice(5)];
+  const whiteHexNumber = 255;
+  let oppositeColor = '';
 
-  const decimalNumberR = parseInt(hexNumberR, 16);
-  const decimalNumberG = parseInt(hexNumberG, 16);
-  const decimalNumberB = parseInt(hexNumberB, 16);
+  for (let i = 0; i < colorArray.length; i++) {
+    const decimalNumber = parseInt(colorArray[i], 16);
+    const oppositeNumber = whiteHexNumber - decimalNumber;
+    let oppositeHexNumber = oppositeNumber.toString(16);
 
-  const whiteHexNumberR = 255;
-  const whiteHexNumberG = 255;
-  const whiteHexNumberB = 255;
-
-  const differenceR = whiteHexNumberR - decimalNumberR;
-  let differenceHexR = differenceR.toString(16);
-
-  if (differenceHexR.length === 1) {
-    differenceHexR = '0' + differenceHexR;
+    if (oppositeHexNumber.length === 1) {
+      oppositeHexNumber = '0' + oppositeNumber;
+    }
+    oppositeColor += oppositeHexNumber;
   }
 
-  const differenceG = whiteHexNumberG - decimalNumberG;
-  let differenceHexG = differenceG.toString(16);
-
-  if (differenceHexG.length === 1) {
-    differenceHexG = '0' + differenceHexG;
-  }
-
-  const differenceB = whiteHexNumberB - decimalNumberB;
-  let differenceHexB = differenceB.toString(16);
-
-  if (differenceHexB.length === 1) {
-    differenceHexB = '0' + differenceHexB;
-  }
-
-  return `#${differenceHexR}${differenceHexG}${differenceHexB}`;
+  return `#${oppositeColor}`;
 }
+
+// console.log(invertColor("#9876F0"));
 
 module.exports = invertColor;
