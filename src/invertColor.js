@@ -13,7 +13,7 @@
  * @return {string}
  */
 function invertColor(color) {
-  const colorr = color.toUpperCase().split('');
+  const colorArray = color.toUpperCase().split('');
   const invertTable = {
     '0': 'F',
     '1': 'E',
@@ -33,11 +33,11 @@ function invertColor(color) {
     'F': '0',
   };
 
-  for (let i = 1; i < colorr.length; i++) {
-    colorr[i] = invertTable[colorr[i]];
+  for (let i = 1; i < colorArray.length; i++) {
+    colorArray[i] = invertTable[colorArray[i]];
   }
 
-  return colorr.join('');
+  return colorArray.join('');
 }
 
 module.exports = invertColor;
