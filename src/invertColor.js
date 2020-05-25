@@ -13,24 +13,21 @@
  * @return {string}
  */
 function invertColor(color) {
-  const colorArray = [color.slice(1, 3), color.slice(3, 5), color.slice(5)];
-  const whiteHexNumber = 255;
-  let oppositeColor = '';
+  let invertColour = '#';
+  const whiteDecimal = 255;
 
-  for (let i = 0; i < colorArray.length; i++) {
-    const decimalNumber = parseInt(colorArray[i], 16);
-    const oppositeNumber = whiteHexNumber - decimalNumber;
-    let oppositeHexNumber = oppositeNumber.toString(16);
+  for (let i = 1; i < color.length; i += 2) {
+    const difference = whiteDecimal - parseInt(color[i] + color[i + 1], 16);
+    let differenceHex = difference.toString(16);
 
-    if (oppositeHexNumber.length === 1) {
-      oppositeHexNumber = '0' + oppositeNumber;
+    if (differenceHex.length === 1) {
+      differenceHex = '0' + differenceHex;
     }
-    oppositeColor += oppositeHexNumber;
+
+    invertColour += differenceHex;
   }
 
-  return `#${oppositeColor}`;
+  return invertColour;
 }
-
-// console.log(invertColor("#9876F0"));
 
 module.exports = invertColor;
