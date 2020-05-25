@@ -16,12 +16,41 @@ function invertColor(color) {
   let invertedColor = '#';
 
   for (let i = 1; i < (color.length / 2 + 2); i += 2) {
-    const curColor = ('0xff' - `0x${color.substr(i, 2)}`).toString(16);
+    const curColor = toHex(('0xff' - `0x${color.substr(i, 2)}`));
 
     invertedColor += curColor.length === 1 ? 0 + curColor : curColor;
   }
 
   return invertedColor;
+}
+
+function toHex(value) {
+  const hex = {
+    10: 'a',
+    11: 'b',
+    12: 'c',
+    13: 'd',
+    14: 'e',
+    15: 'f',
+  };
+
+  let secondDigit = value % 16;
+
+  if (secondDigit >= 10) {
+    secondDigit = hex[secondDigit];
+  }
+
+  if (value < 16) {
+    return `${secondDigit}`;
+  }
+
+  let firstDigit = Math.floor(value / 16) % 16;
+
+  if (firstDigit >= 10) {
+    firstDigit = hex[firstDigit];
+  }
+
+  return `${firstDigit}${secondDigit}`;
 }
 
 module.exports = invertColor;
