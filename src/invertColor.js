@@ -14,16 +14,18 @@
  */
 function invertColor(color) {
   const hashlessColor = color.slice(1);
-  let invert = '#';
+  let inverted = '#';
 
   for (let i = 0; i < hashlessColor.length / 2; i++) {
     const currentColor = hashlessColor.slice(i * 2, i * 2 + 2);
     const invertCurColor = (255 - parseInt(currentColor, 16)).toString(16);
 
-    invert += invertCurColor.length < 2 ? '0' + invertCurColor : invertCurColor;
+    inverted += invertCurColor.length < 2
+      ? '0' + invertCurColor
+      : invertCurColor;
   }
 
-  return invert;
+  return inverted;
 }
 
 module.exports = invertColor;
