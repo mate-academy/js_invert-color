@@ -20,7 +20,7 @@ function invertColor(color) {
     const currentColor = hashlessColor.slice(i * 2, i * 2 + 2);
     const invertCurColor = (255 - parseInt(currentColor, 16)).toString(16);
 
-   invert += invertCurColor.length < 2 ? '0' + invertCurColor : invertCurColor;
+    invert += invertCurColor.length < 2 ? '0' + invertCurColor : invertCurColor;
   }
 
   return invert;
