@@ -16,18 +16,19 @@ function invertColor(color) {
   const hexArray = [
     '0', '1', '2', '3', '4', '5', '6', '7',
     '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
-  const reversetHexArray = [
-    'F', 'E', 'D', 'C', 'B', 'A', '9', '8',
-    '7', '6', '5', '4', '3', '2', '1', '0'];
+  let reversetColor = '#';
 
-  const reversetColor = ['#'];
+  function getHex(value) {
+    const hexValue = '' + hexArray[value];
 
-  for (let i = 1; i < color.length; i++) {
-    reversetColor
-      .push(reversetHexArray[hexArray.indexOf(color[i].toUpperCase())]);
+    return hexValue;
   }
 
-  return reversetColor.join('');
+  for (let i = 1; i < color.length; i++) {
+    reversetColor += getHex(0xf - ('0x' + color[i]));
+  }
+
+  return reversetColor;
 }
 
 module.exports = invertColor;
