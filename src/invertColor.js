@@ -13,36 +13,7 @@
  * @return {string}
  */
 function invertColor(color) {
-	const colorRed = color.substr(1, 2);
-	const colorGreen = color.substr(3, 2);
-	const colorBlue = color.substr(5, 2);
-
-	const colorDecRed = parseInt(colorRed, 16);
-	const colorDecGreen = parseInt(colorGreen, 16);
-	const colorDecBlue = parseInt(colorBlue, 16);
-
-	const answerColorRed = 255 - colorDecRed;
-	const answerColorGreen = 255 - colorDecGreen;
-	const answerColorBlue = 255 - colorDecBlue;
-
-	let answerColorHexRed = answerColorRed.toString(16);
-	if (answerColorHexRed.length < 2) {
-		answerColorHexRed = '0' + answerColorHexRed;
-	}
-
-	let answerColorHexGreen = answerColorGreen.toString(16);
-	if (answerColorHexGreen.length < 2) {
-		answerColorHexGreen = '0' + answerColorHexGreen;
-	}
-
-	let answerColorHexBlue = answerColorBlue.toString(16);
-	if (answerColorHexBlue.length < 2) {
-		answerColorHexBlue = '0' + answerColorHexBlue;
-	}
-
-	let answer = '#' + answerColorHexRed + answerColorHexGreen + answerColorHexBlue;
-
-	return answer;
+  // write code here
 }
 
 module.exports = invertColor;
