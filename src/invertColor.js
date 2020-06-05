@@ -13,7 +13,22 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const hexArray = [
+    '0', '1', '2', '3', '4', '5', '6', '7',
+    '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
+  let reversetColor = '#';
+
+  function getHex(value) {
+    const hexValue = '' + hexArray[value];
+
+    return hexValue;
+  }
+
+  for (let i = 1; i < color.length; i++) {
+    reversetColor += getHex(0xf - ('0x' + color[i]));
+  }
+
+  return reversetColor;
 }
 
 module.exports = invertColor;
