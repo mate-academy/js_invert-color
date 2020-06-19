@@ -13,7 +13,27 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const hexColor = color.replace('#', '');
+  let invertedColor = '#';
+
+  for (let i = 0; i < hexColor.length; i++) {
+    invertedColor += getHexPiece(0xf - ('0x' + hexColor[i]));
+  }
+
+  return invertedColor;
+}
+
+function getHexPiece(value) {
+  const letterHex = ['a', 'b', 'c', 'd', 'e', 'f'];
+  let hex = '';
+
+  if (value < 10) {
+    hex = '' + value;
+  } else if (value < 16) {
+    hex = letterHex[value - 10];
+  }
+
+  return hex;
 }
 
 module.exports = invertColor;
