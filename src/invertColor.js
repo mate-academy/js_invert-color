@@ -12,8 +12,21 @@
  *
  * @return {string}
  */
-function invertColor(color) {
-  // write code here
+
+function invertColor(hex) {
+  const colors = [
+    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+    'A', 'B', 'C', 'D', 'E', 'F',
+  ];
+  let invertedColor = '#';
+
+  hex.toUpperCase().replace('#', '').split('').forEach(el => {
+    const index = colors.indexOf(el);
+
+    invertedColor += colors.reverse()[index];
+  });
+
+  return invertedColor;
 }
 
 module.exports = invertColor;
