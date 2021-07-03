@@ -13,7 +13,13 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const hex = [
+    'F', 'E', 'D', 'C', 'B', 'A', '9', '8',
+    '7', '6', '5', '4', '3', '2', '1', '0'];
+
+  return [...color]
+    .map((item, i) => i === 0 ? item : hex[parseInt(item, 16)])
+    .join('');
 }
 
 module.exports = invertColor;
