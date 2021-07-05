@@ -13,7 +13,19 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  function hexInverter (item) {
+    if (/[\d]/g.test(item) === true) {
+      return hexRepresentetion.split('')[`${15 - parseInt(item)}`];
+    }
+
+    item = hexRepresentetion.indexOf(15 - hexRepresentetion.indexOf(item));
+    return item;
+  }
+  const hexRepresentetion = '0123456789ABCDEF'
+  color = color.toUpperCase().split('').slice(1);
+
+  return '#' + color.map(hexInverter).join('');
 }
+
 
 module.exports = invertColor;
