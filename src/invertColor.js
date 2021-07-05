@@ -14,6 +14,19 @@
  */
 function invertColor(color) {
   // write code here
+  const white = 0xFFFFFF;
+  const givenColorHex = +color.replace('#', '0x');
+  let invertedColor = (white - givenColorHex).toString(16);
+
+  const length = invertedColor.length;
+
+  for (let i = 1; i <= 6 - length; i++) {
+    invertedColor = '0' + invertedColor;
+  }
+
+  invertedColor = '#' + invertedColor;
+
+  return invertedColor;
 }
 
 module.exports = invertColor;
