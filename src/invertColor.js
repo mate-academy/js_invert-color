@@ -13,7 +13,31 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  let invert = '#';
+  const hexMap = {
+    '0': 'F',
+    '1': 'E',
+    '2': 'D',
+    '3': 'C',
+    '4': 'B',
+    '5': 'A',
+    '6': '9',
+    '7': '8',
+    '8': '7',
+    '9': '6',
+    'A': '5',
+    'B': '4',
+    'C': '3',
+    'D': '2',
+    'E': '1',
+    'F': '0',
+  };
+
+  for (let i = 1; i < color.length; i++) {
+    invert += hexMap[color[i].toUpperCase()];
+  }
+
+  return invert;
 }
 
 module.exports = invertColor;
