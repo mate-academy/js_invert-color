@@ -12,8 +12,16 @@
  *
  * @return {string}
  */
+
 function invertColor(color) {
-  // write code here
+  const hex = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+    'A', 'B', 'C', 'D', 'E', 'F'];
+
+  return '#' + color.padStart(6, '0')
+    .toUpperCase()
+    .split('')
+    .map(item => hex[15 - hex.findIndex(elem => elem === item)])
+    .join('');
 }
 
 module.exports = invertColor;
