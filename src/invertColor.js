@@ -13,7 +13,20 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  let inverted = '#';
+
+  for (let i = 1; i < color.length; i += 2) {
+    const tempColor = 255 - parseInt(color[i] + color[i + 1], 16);
+    const tempColorDecimal = tempColor.toString(16);
+
+    if (tempColorDecimal.length < 2) {
+      inverted += 0 + tempColorDecimal;
+    } else {
+      inverted += tempColorDecimal;
+    }
+  }
+
+  return inverted;
 }
 
 module.exports = invertColor;
