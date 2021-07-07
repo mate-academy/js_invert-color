@@ -14,6 +14,13 @@
  */
 function invertColor(color) {
   // write code here
+  let colorCode = color.toUpperCase().slice(1);
+  let invertColor = "#";
+  let system = 16;
+  for (let i = 0; i < colorCode.length; i++) {
+    invertColor = invertColor + ((system - 1) - parseInt(colorCode[i], system)).toString(system);
+  }
+  return invertColor;
 }
 
 module.exports = invertColor;
