@@ -13,7 +13,21 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  let invertColour = '#';
+  const whiteDecimal = 255;
+
+  for (let i = 1; i < color.length; i += 2) {
+    const difference = whiteDecimal - parseInt(color[i] + color[i + 1], 16);
+    let differenceHex = difference.toString(16);
+
+    if (differenceHex.length === 1) {
+      differenceHex = '0' + differenceHex;
+    }
+
+    invertColour += differenceHex;
+  }
+
+  return invertColour;
 }
 
 module.exports = invertColor;
