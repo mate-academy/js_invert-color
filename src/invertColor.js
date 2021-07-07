@@ -13,7 +13,11 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const clr = color.slice(1).toLowerCase();
+  const col = parseInt(clr, 16);
+  const invert = 0xffffff - col;
+
+  return invert.toString(16).padStart(7, '#000000').toUpperCase();
 }
 
 module.exports = invertColor;
