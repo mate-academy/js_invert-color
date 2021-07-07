@@ -13,7 +13,16 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const colorNumber = '0x' + color.substring(1);
+
+  let invertNumber = 0xFFFFFF - colorNumber;
+  invertNumber = Number(invertNumber).toString(16);
+
+  while (invertNumber.length < 6) {
+    invertNumber = '0' + invertNumber;
+  };
+
+  return '#' + invertNumber;
 }
 
 module.exports = invertColor;
