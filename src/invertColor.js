@@ -13,7 +13,27 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const hexArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+  const hexUpperArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C',
+    'D', 'E', 'F'];
+  const hexInvertArr = hexArr.slice(0).reverse();
+  const hexInvertUpperArr = hexUpperArr.slice(0).reverse();
+  const colorArr = color.split('');
+
+  for (let i = 1; i < colorArr.length; i++) {
+    if (isFinite(colorArr[i])) {
+      const colorSimbolPosition = hexArr.indexOf(+colorArr[i]);
+      colorArr[i] = hexInvertArr[colorSimbolPosition];
+    } else if (colorArr[i] === colorArr[i].toUpperCase()) {
+      const colorSimbolPosition = hexUpperArr.indexOf(colorArr[i]);
+      colorArr[i] = hexInvertUpperArr[colorSimbolPosition];
+    } else {
+      const colorSimbolPosition = hexArr.indexOf(colorArr[i]);
+      colorArr[i] = hexInvertArr[colorSimbolPosition];
+    }
+  }
+
+  return colorArr.join('');
 }
 
 module.exports = invertColor;
