@@ -13,7 +13,10 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const invertedColor = (Number(`0x1${color.substr(1)}`) ^ 0xFFFFFF)
+    .toString(16).substr(1).toUpperCase();
+
+  return '#' + invertedColor;
 }
 
 module.exports = invertColor;
