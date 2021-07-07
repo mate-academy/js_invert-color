@@ -13,7 +13,15 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const r = invertSingleColor(color.slice(1, 3));
+  const g = invertSingleColor(color.slice(3, 5));
+  const b = invertSingleColor(color.slice(5, 7));
+
+  return '#' + r + g + b;
+}
+
+function invertSingleColor(color) {
+  return (255 - parseInt(color, 16)).toString(16).padStart(2, 0);
 }
 
 module.exports = invertColor;
