@@ -12,8 +12,18 @@
  *
  * @return {string}
  */
+function toHex(number) {
+  let res = number.toString(16);
+  if (res.length === 1) {
+    res = '0' + res;
+  }
+  return res;
+}
+
 function invertColor(color) {
-  // write code here
+  return '#' + toHex(255 - parseInt(color.substr(1, 2), 16))
+    + toHex(255 - parseInt(color.substr(3, 2), 16))
+    + toHex(255 - parseInt(color.substr(5, 2), 16));
 }
 
 module.exports = invertColor;
