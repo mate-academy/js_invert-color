@@ -12,8 +12,45 @@
  *
  * @return {string}
  */
+
 function invertColor(color) {
-  // write code here
+  const data = {
+    1: '1',
+    2: '2',
+    3: '3',
+    4: '4',
+    5: '5',
+    6: '6',
+    7: '7',
+    8: '8',
+    9: '9',
+    0: '0',
+    a: 10,
+    b: 11,
+    c: 12,
+    d: 13,
+    e: 14,
+    f: 15,
+    10: 'a',
+    11: 'b',
+    12: 'c',
+    13: 'd',
+    14: 'e',
+    15: 'f',
+  };
+
+  const baseWhiteColor = 15;
+  const selfColor = color
+    .replace(/#/g, '')
+    .toLowerCase()
+    .split('')
+    .map(item => data[item]);
+
+  const result = selfColor
+    .map(item => baseWhiteColor - item)
+    .map(item => data[item])
+    .join('');
+  return `#${result}`;
 }
 
 module.exports = invertColor;
