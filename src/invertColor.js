@@ -13,7 +13,20 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const colorValue = color;
+  const colorsNumber = [];
+  const step = 2;
+  const maxColorValue = 255;
+  let temp;
+
+  for (let i = 1; i < colorValue.length; i += step) {
+    temp = colorValue.substring(i, i + step);
+    temp = parseInt(temp, 16);
+    temp = (maxColorValue - temp).toString(16);
+    colorsNumber.push(temp.length === 1 ? `0${temp}` : temp);
+  }
+
+  return `#${colorsNumber.join('').toUpperCase()}`;
 }
 
 module.exports = invertColor;
