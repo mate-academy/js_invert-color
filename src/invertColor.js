@@ -13,7 +13,16 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const rules = ['F', 'E', 'D', 'C', 'B', 'A',
+    '9', '8', '7', '6', '5', '4', '3', '2', '1', '0'];
+
+  const invertedColor = color.split('');
+
+  for (let i = 1; i <= 6; i++) {
+    invertedColor[i] = rules[parseInt(invertedColor[i], 16)];
+  }
+
+  return invertedColor.join('');
 }
 
 module.exports = invertColor;
