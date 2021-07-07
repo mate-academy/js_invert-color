@@ -12,8 +12,25 @@
  *
  * @return {string}
  */
+
 function invertColor(color) {
-  // write code here
+  const intHexWhiteColor = parseInt('FFFFFF', 16);
+  const intHexInputColor = parseInt(color.slice(1), 16);
+  const invertedColor = intHexWhiteColor - intHexInputColor;
+
+  if (invertedColor === 0) {
+    return '#000000';
+  } else if (invertedColor.toString(16).length < 6) {
+    let stringZero = '';
+
+    for (let i = 0; i < 6 - invertedColor.toString(16).length; i++) {
+      stringZero = stringZero + '0';
+    }
+
+    return '#' + stringZero + invertedColor.toString(16);
+  }
+
+  return '#' + invertedColor.toString(16);
 }
 
 module.exports = invertColor;
