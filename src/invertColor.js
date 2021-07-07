@@ -14,6 +14,16 @@
  */
 function invertColor(color) {
   // write code here
+
+  const HEX = '0123456789abcdef';
+  const indicesHEX = 15;
+  let result = '#';
+
+  for (let i = 1; i < color.length; i++) {
+    result += HEX[indicesHEX - HEX.indexOf(color[i].toLowerCase())];
+  }
+
+  return result;
 }
 
 module.exports = invertColor;
