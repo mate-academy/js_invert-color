@@ -12,8 +12,33 @@
  *
  * @return {string}
  */
+const hexTable = {
+  '0': 'f',
+  '1': 'e',
+  '2': 'd',
+  '3': 'c',
+  '4': 'b',
+  '5': 'a',
+  '6': '9',
+  '7': '8',
+  '8': '7',
+  '9': '6',
+  'a': '5',
+  'b': '4',
+  'c': '3',
+  'd': '2',
+  'e': '1',
+  'f': '0',
+};
+
 function invertColor(color) {
-  // write code here
+  const invertedColor = [];
+
+  for (let i = 1; i < color.length; i++) {
+    invertedColor.push(hexTable[color[i].toLowerCase()]);
+  }
+
+  return (`#` + invertedColor.join('').toUpperCase());
 }
 
 module.exports = invertColor;
