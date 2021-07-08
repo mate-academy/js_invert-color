@@ -13,7 +13,18 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const replacedGridToZeroXColor = color.replace('#', '0x');
+  const whiteColor = 0xFFFFFF;
+  let colorToHexString = '';
+
+  const invertColorCalculator = whiteColor - replacedGridToZeroXColor;
+  colorToHexString = invertColorCalculator.toString(16);
+
+  if (colorToHexString.length < 6) {
+    colorToHexString = colorToHexString.padStart(6, 0)
+  }
+
+  return '#' + colorToHexString;
 }
 
 module.exports = invertColor;
