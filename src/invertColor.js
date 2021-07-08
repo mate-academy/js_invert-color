@@ -13,7 +13,19 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  const hashlessColor = color.slice(1);
+  let inverted = '#';
+
+  for (let i = 0; i < hashlessColor.length / 2; i++) {
+    const curColor = hashlessColor.slice(i * 2, i * 2 + 2);
+    const invertedCurColor = (255 - parseInt(curColor, 16)).toString(16);
+
+    inverted += invertedCurColor.length < 2
+      ? '0' + invertedCurColor
+      : invertedCurColor;
+  }
+
+  return inverted;
 }
 
 module.exports = invertColor;
