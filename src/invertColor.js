@@ -13,7 +13,10 @@
  * @return {string}
  */
 function invertColor(color) {
-  // write code here
+  return '#' + (parseInt('ffffff', 16) - parseInt(color
+    .replace(/#/g, ''), 16))
+    .toString(16)
+    .padStart(6, '0');
 }
 
 module.exports = invertColor;
